@@ -1,6 +1,6 @@
 const canvas=document.getElementById("myCanvas");
 canvas.width=200;
-const car_width=30, car_height=50, speed=20, initial_pos=120, finish_line=300;
+const car_width=30, car_height=50, speed=2, initial_pos=120, finish_line=300;
 const ctx = canvas.getContext("2d");
 const road=new Road(canvas.width/2,canvas.width*0.9, laneCount=4, finishLine=finish_line, initialPos=initial_pos);
 
@@ -55,13 +55,13 @@ function animate(){
             if (car.y < traffic[i].y)
                 race_position--;
         $('#km').html('KM: '+last_pos+' ['+race_position+'º]');
-        s = (new Date((new Date()).getTime()-first_time)).getMilliseconds();
+        s = (new Date((new Date()).getTime()-first_time)).getSeconds();
         $('#tempo').text('Tempo: '+s+'s')
     }
     if (run_finished){
         if (last_time == 0){
             last_time = (new Date()).getTime();
-            var seconds = (new Date(last_time-first_time)).getMilliseconds();
+            var seconds = (new Date(last_time-first_time)).getSeconds();
             $('#km').text('Posição: '+race_position+'º');
             $('#tempo').text('Tempo: '+seconds+'s');
         }
