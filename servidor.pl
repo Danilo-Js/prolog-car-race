@@ -65,11 +65,19 @@ obter_controles([X,Y,ANGLE,S1,S2,S3,S4,S5], [1,0,0,1]) :-
 
 %SE LIVRAR DE UM CARRO MUITO PRÓXIMO À DIREITA (Prioridade Grande)
 obter_controles([X,Y,ANGLE,S1,S2,S3,S4,S5], [1,0,1,0]) :-
-    S5 > 0.7.
+    S5 > 0.75.
 
 %SE LIVRAR DE UM CARRO MUITO PRÓXIMO À ESQUERDA (Prioridade Grande)
 obter_controles([X,Y,ANGLE,S1,S2,S3,S4,S5], [1,0,0,1]) :-
-    S1 > 0.7.
+    S1 > 0.75.
+
+%FRENTE, ENQUANTO O ÂNGULO ESTIVER PRÓXIMO DE 0 E NÃO HOUVER NENHUM OBSTÁCULO CRÍTICO À FRENTE
+obter_controles([X,Y,ANGLE,S1,S2,S3,S4,S5], [1,0,0,0]) :-
+    S2 < 0.7,
+    S3 < 0.5,
+    S4 < 0.7,
+    ANGLE > -0.1,
+    ANGLE < 0.1.
 
 %FRENTE-ESQUERDA
 obter_controles([X,Y,ANGLE,S1,S2,S3,S4,S5], [1,0,1,0]) :-
@@ -78,8 +86,5 @@ obter_controles([X,Y,ANGLE,S1,S2,S3,S4,S5], [1,0,1,0]) :-
 %FRENTE-DIREITA
 obter_controles([X,Y,ANGLE,S1,S2,S3,S4,S5], [1,0,0,1]) :-
     S1+S2 > S4+S5+0.1.
-
-%FRENTE
-obter_controles([X,Y,ANGLE,S1,S2,S3,S4,S5], [1,0,0,0]) :- S3 < 0.5.
 
 obter_controles(_,[0,0,0,0]).
