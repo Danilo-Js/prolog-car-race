@@ -25,17 +25,17 @@
 
 <p align="center" direction="row">
   <a href="#rocket-about-the-project">About the project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#information_source-get-this-project">Get this project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#information_source-how-to-contribuite">How to contribuite</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-license">License</a>
 </p>
 
 </br>
 
-<!---
+
 <p align="center">
-  <img alt="Web" width="600" height="300" src="https://github.com/Danilo-Js/Biblioteca-Virtual/blob/main/Protótipos/Home.png">
+  <img alt="DemonstrationGit" src="https://github.com/Danilo-Js/prolog-car-race/blob/main/demonstrationGif.gif">
 </p>
--->
+
 
 </br>
 
@@ -53,11 +53,45 @@ Results:
 - Comes 2nd or 3rd in most races he doesn't win
 - Completed all races already tested
 
-## :information_source: Get this project
+## :information_source: How to contribuite
 Clone the project
 ```
 $ git cone https://github.com/Danilo-Js/prolog-car-race.git
 ```
+Edit .js files to change web structure: 
+[car.js](https://github.com/Danilo-Js/prolog-car-race/blob/main/car.js),
+[controls.js](https://github.com/Danilo-Js/prolog-car-race/blob/main/controls.js),
+[main.js](https://github.com/Danilo-Js/prolog-car-race/blob/main/main.js),
+[road.js](https://github.com/Danilo-Js/prolog-car-race/blob/main/road.js),
+[sensor.js](https://github.com/Danilo-Js/prolog-car-race/blob/main/sensor.js),
+[jquery.min.js](https://github.com/Danilo-Js/prolog-car-race/blob/main/jquery.min.js),
+[utils.js](https://github.com/Danilo-Js/prolog-car-race/blob/main/utils.js).
+
+Edit [servidor.pl](https://github.com/Danilo-Js/prolog-car-race/blob/main/servidor.pl) to change the IA structure.
+
+Run the project by consulting the [servidor.pl](https://github.com/Danilo-Js/prolog-car-race/blob/main/servidor.pl) into Swipl
+```
+$ swipl -s servidor.pl
+```
+And the you open the project in your browser, by default the URL it will be
+```
+http://localhost:8080
+```
+You can also run the project without the AI, using the arrow keys on your keyboard to control the car manually.
+For this, line 10 of the [main.js](https://github.com/Danilo-Js/prolog-car-race/blob/main/main.js) file cannot be commented out, and line 8 must. Then you open [index.html](https://github.com/Danilo-Js/prolog-car-race/blob/main/index.html) and play it like a game!
+
+In order for the car to be controlled by the AI again, line 8 must not be commented out, but line 10 must.
+
+Line 8 (for IA)
+```
+const car=new Car(road.getLaneCenter(1),initial_pos,30,50,canvas.width,"PROLOG",speed+0.5);
+```
+
+Line 10 (for arrow keys)
+```
+const car=new Car(road.getLaneCenter(1),initial_pos,30,50,canvas.width,"KEYS",speed+0.5);
+```
+
 
 ## :memo: License
 This project under [MIT license](https://github.com/Danilo-Js/prolog-car-race/blob/master/LICENSE) and it is an adaptation of the [Radu Mariescu-Istodor](https://www.youtube.com/c/RaduMariescuIstodor) project [Self-driving car - No libraries - JavaScript Course](https://www.youtube.com/watch?v=NkI9ia2cLhc)
