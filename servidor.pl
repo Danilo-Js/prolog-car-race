@@ -78,6 +78,13 @@ obter_controles([X,Y,ANGLE,S1,S2,S3,S4,S5], [1,0,0,0]) :-
     S4 < 0.7,
     ANGLE > -0.1,
     ANGLE < 0.1.
+    /*
+    Também serve para que, assim que aparecer um obstáculo à frente, ele pare de andar somente pra frente, e sim
+    para a frente-esquerda ou frente-direita, de acordo com as regras posteriores. Desviando do obstáculo.
+
+    Essa regra ter maior prioridade que a FRENTE-ESQUERDA e FRENTE-DIREITA também possibilita que ele ande rente à
+    parede
+    */
 
 %FRENTE-ESQUERDA
 obter_controles([X,Y,ANGLE,S1,S2,S3,S4,S5], [1,0,1,0]) :-
