@@ -3,7 +3,7 @@
 </h1>
 
 <h4 align="center">
-  Implementation of a car race, where the main car is managed by an artificial intelligence
+  Implementation of a car race, where the main car can be managed by an artificial intelligence
 </h4>
 
 <p align="center">
