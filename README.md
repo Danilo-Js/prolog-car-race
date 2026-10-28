@@ -1,101 +1,54 @@
-<h1 align="center">
-    Prolog Car Race
-</h1>
+![Prolog Car Race](docs/assets/capa.svg)
 
-<h4 align="center">
-  Implementation of a car race, where the main car can be managed by an artificial intelligence
-</h4>
+# Prolog Car Race
 
-<p align="center">
-  <a href="https://img.shields.io/github/repo-size/Danilo-Js/prolog-car-race/commits/master">
-    <img alt="Repository size" src="https://img.shields.io/github/repo-size/Danilo-Js/prolog-car-race">
-  </a>
+Corrida de carros usada como ambiente de estudo de regras de decisão. A simulação envia dados de sensores ao Prolog e recebe ações para desviar de obstáculos e orientar o veículo.
 
-  <a href="https://img.shields.io/github/issues/Danilo-Js/prolog-car-race/issues">
-    <img alt="Repository issues" src="https://img.shields.io/github/issues/Danilo-Js/prolog-car-race">
-  </a>
-  
-  <img alt="Repository forks" src="https://img.shields.io/github/forks/Danilo-Js/prolog-car-race">
-  
-  <img alt="Repository stars" src="https://img.shields.io/github/stars/Danilo-Js/prolog-car-race">
-  
-  <img alt="Repository license" src="https://img.shields.io/github/license/Danilo-Js/prolog-car-race">
-  
-</p>
+**Inteligência Artificial · Ciência da Computação · UFES**
 
-<p align="center" direction="row">
-  <a href="#rocket-about-the-project">About the project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#information_source-how-to-contribuite">How to contribuite</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#memo-license">License</a>
-</p>
+SWI-Prolog · JavaScript · HTML · CSS
 
-</br>
+[English](README.en.md) · [Meu percurso em Ciência da Computação](https://github.com/Danilo-Js/My-Computer-Science-Course)
 
+<p align="center"><img src="demonstrationGif.gif" alt="Demonstração original de Prolog Car Race" width="780" /></p>
 
-<p align="center">
-  <img alt="DemonstrationGit" src="https://github.com/Danilo-Js/prolog-car-race/blob/main/demonstrationGif.gif">
-</p>
+## O que este projeto explora
 
+- Uso de sensores e posição relativa de obstáculos.
+- Prioridade entre regras de navegação.
+- Integração de uma base lógica com uma visualização interativa.
 
-</br>
+## Como explorar
 
-## :rocket: About the project
-This project is an academic work developed for the Artificial Intelligence discipline, taught by Professor [Jacson Rodrigues Correia da Silva](http://lattes.cnpq.br/0637308986252382) at the Federal University of Espírito Santo.
+| Caminho | Conteúdo |
+|---|---|
+| [Servidor e regras do agente](servidor.pl) | `servidor.pl` |
+| [Sensores](sensor.js) | `sensor.js` |
+| [Modelo do veículo](car.js) | `car.js` |
+| [Simulação](main.js) | `main.js` |
 
-The cart is already capable of:
-- Identify a critical (very close) obstacle on the right/left and swerve to the opposite side
-- Divert to the freest path (right or left) to avoid an obstacle ahead
-- Ignore right/left non-critical obstacles as long as your path ahead is clear
-- Correct your angle immediately if it is too unfavorable. Preventing it from walking backwards, or horizontally
+## Executar ou consultar
 
-Results:
-- Ranks 1 in about 1/3 of races
-- Comes 2nd or 3rd in most races he doesn't win
-- Completed all races already tested
+Com SWI-Prolog instalado:
 
-## :information_source: How to contribuite
-Clone the project
-```
-$ git cone https://github.com/Danilo-Js/prolog-car-race.git
-```
-Edit .js files to change web structure: 
-[car.js](https://github.com/Danilo-Js/prolog-car-race/blob/main/car.js),
-[controls.js](https://github.com/Danilo-Js/prolog-car-race/blob/main/controls.js),
-[main.js](https://github.com/Danilo-Js/prolog-car-race/blob/main/main.js),
-[road.js](https://github.com/Danilo-Js/prolog-car-race/blob/main/road.js),
-[sensor.js](https://github.com/Danilo-Js/prolog-car-race/blob/main/sensor.js),
-[jquery.min.js](https://github.com/Danilo-Js/prolog-car-race/blob/main/jquery.min.js),
-[utils.js](https://github.com/Danilo-Js/prolog-car-race/blob/main/utils.js).
-
-Edit [servidor.pl](https://github.com/Danilo-Js/prolog-car-race/blob/main/servidor.pl) to change the IA structure.
-
-Run the project by consulting the [servidor.pl](https://github.com/Danilo-Js/prolog-car-race/blob/main/servidor.pl) into Swipl
-```
-$ swipl -s servidor.pl
-```
-And the you open the project in your browser, by default the URL it will be
-```
-http://localhost:8080
-```
-You can also run the project without the AI, using the arrow keys on your keyboard to control the car manually.
-For this, line 10 of the [main.js](https://github.com/Danilo-Js/prolog-car-race/blob/main/main.js) file cannot be commented out, and line 8 must. Then you open [index.html](https://github.com/Danilo-Js/prolog-car-race/blob/main/index.html) and play it like a game!
-
-In order for the car to be controlled by the AI again, line 8 must not be commented out, but line 10 must.
-
-Line 8 (for IA)
-```
-const car=new Car(road.getLaneCenter(1),initial_pos,30,50,canvas.width,"PROLOG",speed+0.5);
+```bash
+swipl -s servidor.pl
 ```
 
-Line 10 (for arrow keys)
-```
-const car=new Car(road.getLaneCenter(1),initial_pos,30,50,canvas.width,"KEYS",speed+0.5);
-```
+O servidor utiliza a porta 8080. Abra `index.html` no ambiente local e confira os endpoints no JavaScript. Evite iniciar simultaneamente outra simulação deste acervo na mesma porta.
 
+## Conceitos e contexto
 
-## :memo: License
-This project under [MIT license](https://github.com/Danilo-Js/prolog-car-race/blob/master/LICENSE) and it is an adaptation of the [Radu Mariescu-Istodor](https://www.youtube.com/c/RaduMariescuIstodor) project [Self-driving car - No libraries - JavaScript Course](https://www.youtube.com/watch?v=NkI9ia2cLhc)
+O projeto explora regras de uma simulação didática. Resultados antigos de corridas não são tratados como métricas verificadas nesta documentação.
 
----
+## Autoria e procedência
 
-#### Made by: Arthur Santos Almeida, Danilo José Lima de Oliveira.
+Arthur Santos Almeida e Danilo José Lima de Oliveira. Trabalho de Inteligência Artificial, com orientação da disciplina por Jacson Rodrigues Correia da Silva. Adaptação da base de Radu Mariescu-Istodor, [Self-driving car — JavaScript Course](https://www.youtube.com/watch?v=NkI9ia2cLhc).
+
+## Licença
+
+Os termos deste acervo estão em [LICENSE](LICENSE). Os projetos e materiais vinculados conservam suas próprias condições e atribuições.
+
+## Projetos relacionados
+
+- [AI-Tank-Battle](https://github.com/Danilo-Js/AI-Tank-Battle)
